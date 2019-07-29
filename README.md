@@ -1,18 +1,18 @@
 # Guide to use
 
-- [Guide to use](#guide-to-use)
-    + [setup](#setup)
-    + [running the server](#running-the-server)
-    + [APIs available](#apis-available)
-    + [APIs details](#apis-details)
-      - [To retrieve all the information relevant to generating the music](#to-retrieve-all-the-information-relevant-to-generating-the-music)
-      - [To retrieve selected information](#to-retrieve-selected-information)
-      - [To generate music](#to-generate-music)
-        * [Compulsory Parameters](#compulsory-parameters)
-        * [Optional Parameters](#optional-parameters)
-      - [To modify the generated music](#to-modify-the-generated-music)
-        * [Features](#features)
+- [setup](#setup)
+- [running the server](#running-the-server)
+- [APIs available](#apis-available)
+- [APIs details](#apis-details)
+  * [To retrieve all the information relevant to generating the music](#to-retrieve-all-the-information-relevant-to-generating-the-music)
+  * [To retrieve selected information](#to-retrieve-selected-information)
+  * [To generate music](#to-generate-music)
+    + [Compulsory Parameters](#compulsory-parameters)
+    + [Optional Parameters](#optional-parameters)
+  * [To modify the generated music](#to-modify-the-generated-music)
+    + [Features](#features)
 
+---
 
 ### setup
 - Install Python 3 and Pip
@@ -26,11 +26,14 @@
    pip install Flask
 ```
   
+---  
+  
 ### running the server
 From the directory containing app.py in terminal, run: ` python app.py `<br>
 Now the server should start and accept the requests at port 5000 <br>
 In your case: ` localhost:5000 `
 
+---
 
 ### APIs available
 
@@ -43,7 +46,11 @@ POST:  /api/v1/generate
 POST:  /api/v1/modify
 ```
 
+---
+
 ### APIs details
+
+***
 
 #### To retrieve all the information relevant to generating the music
 
@@ -88,6 +95,8 @@ returns
 }
 ```
 
+***
+
 #### To retrieve selected information
 ```
 GET:   /api/v1/information/keyNames
@@ -112,7 +121,7 @@ eg:
   ]
 ```
 
-
+***
 
 #### To generate music
 ` POST:  /api/v1/generate `<br>
@@ -192,6 +201,7 @@ following paramaters must come together
 "which_octave"
 ```
 
+***
 
 #### To modify the generated music
 
