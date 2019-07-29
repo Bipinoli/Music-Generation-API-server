@@ -1,5 +1,19 @@
 # Guide to use
 
+- [Guide to use](#guide-to-use)
+    + [setup](#setup)
+    + [running the server](#running-the-server)
+    + [APIs available](#apis-available)
+    + [APIs details](#apis-details)
+      - [To retrieve all the information relevant to generating the music](#to-retrieve-all-the-information-relevant-to-generating-the-music)
+      - [To retrieve selected information](#to-retrieve-selected-information)
+      - [To generate music](#to-generate-music)
+        * [Compulsory Parameters](#compulsory-parameters)
+        * [Optional Parameters](#optional-parameters)
+      - [To modify the generated music](#to-modify-the-generated-music)
+        * [Features](#features)
+
+
 ### setup
 - Install Python 3 and Pip
 - Install the dependencies
