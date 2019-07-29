@@ -1,7 +1,7 @@
 # Guide to use
 
-- [setup](#setup)
-- [running the server](#running-the-server)
+- [Setup](#setup)
+- [Running the server](#running-the-server)
 - [APIs available](#apis-available)
 - [APIs details](#apis-details)
   * [To retrieve all the information relevant to generating the music](#to-retrieve-all-the-information-relevant-to-generating-the-music)
@@ -14,7 +14,7 @@
 
 ---
 
-### setup
+### Setup
 - Install Python 3 and Pip
 - Install the dependencies
 ```
@@ -28,7 +28,7 @@
   
 ---  
   
-### running the server
+### Running the server
 From the directory containing app.py in terminal, run: ` python app.py `<br>
 Now the server should start and accept the requests at port 5000 <br>
 In your case: ` localhost:5000 `
