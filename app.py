@@ -8,6 +8,8 @@ import chord_model
 from keras.models import load_model
 import tensorflow as tf
 
+import sheet_music
+
 
 app = Flask(__name__)
 
@@ -65,6 +67,10 @@ def generate_music():
             "chord_temperature": 1, # let it be in the range 0.1 to 2
             "seed_length": 4, # number of bars to seed with
 
+            "note_cap" = 5, # how many notes can be played together at the same time
+                    # it may not be accurate due to chords alongside melody
+                    # it not provided default will be 4
+
             # following must come together
             "key": "C", # -optional # key of the generated music
             "octave_type": "lower", # -optional # (lower, higher) ?
@@ -73,8 +79,8 @@ def generate_music():
     '''
     # parameters passed as the json body in POST req
     parameters = request.get_json()
-    return jsonify(musicGen.generate(parameters))
-    # return send_file(musicGen.generate(parameters), mimetype ="audio/midi")
+    # return jsonify(musicGen.generate(parameters))
+    return send_file(musicGen.generate(parameters), mimetype ="audio/midi")
 
 
 
@@ -97,6 +103,16 @@ def modify_music():
     # return send_file(musicGen.get_music_to_return(), mimetype ="audio/midi")
 
 
+@app.route("/api/v1/sheet_music/<name>")
+def get_sheet_music(name):
+    if name in ["png", "pdf"]:
+        filepath =  sheet_music.generate_sheet_music(musicGen.get_music_to_return(), name)
+    else:
+        filepath =  sheet_music.generate_sheet_music(musicGen.get_music_to_return())
+    if filepath:
+        return send_file(filepath, mimetype="application/pdf")
+    else:
+        return "failed to do so!", 404
 
 if __name__ == "__main__":
     app.run(debug=True)

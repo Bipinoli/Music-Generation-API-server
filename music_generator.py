@@ -20,6 +20,10 @@ parameters = {
     "chord_temperature": 1, # let it be in the range 0.1 to 2
     "seed_length": 4, # number of bars to seed with
 
+    "note_cap" = 5, # how many notes can be played together at the same time
+                    # it may not be accurate due to chords alongside melody
+                    # it not provided default will be 4
+
     # following must come together
     "key": "C", # -optional # key of the generated music
     "octave_type": "lower", # -optional # (lower, higher) ?
@@ -29,7 +33,9 @@ parameters = {
 '''
 
 # fixed parameters
-note_cap = 5
+# note_cap = 5
+# note_cap = 1
+
 with_seed = True
 
 
@@ -148,7 +154,10 @@ def generate_music(parameters):
         next_input = np.append(notes, chord, axis=0)
         next_input = np.reshape(next_input, (1, 1, next_input.shape[0]))
         next_step = melody_model.predict(next_input)
-        notes = sample_probability_vector(next_step[0])
+        if "note_cap" in parameters:
+            notes = sample_probability_vector(next_step[0], parameters["note_cap"])
+        else: 
+            notes = sample_probability_vector(next_step[0])
         rest.append(notes)
 
 
@@ -199,7 +208,7 @@ def modify_generated_music(parameters):
 
 
 
-def sample_probability_vector(prob_vector):
+def sample_probability_vector(prob_vector, note_cap = 4):
     # Sample a probability vector, e.g. [0.1, 0.001, 0.5, 0.9]
     sum_probas = sum(prob_vector)
     

@@ -17,6 +17,9 @@ midi_save_folder = "temp/"
 generated_music_name = "gen_music"
 shifted_music_name = "gen_music_shifted"
 
+# sheet music temporary save location
+sheet_music_save_location = "sheet_music_generation/temp"
+sheet_music_name = "sheet.xml"
 
 # shifting all the major scale keys to the key of C or not?
 shifted = True
