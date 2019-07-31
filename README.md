@@ -263,10 +263,10 @@ body:
 
 #### To generate sheet music
 `GET:   /api/v1/sheet_music/<name>`
-here name = `pdf` or `png` <br>
+where name = `pdf` or `png` <br>
 Response: `sheet music as a file`
 
-Sheet music is produced from the latest genereted of modified music. <br>
+Sheet music is produced from the latest genereted or modified music. <br>
 ```
 eg:
  localhost:5000/api/v1/sheet_music/pdf
