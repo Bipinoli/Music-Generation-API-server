@@ -26,6 +26,8 @@ def home():
     api_endpoints += "GET:  /api/v1/information/all<br>"
     api_endpoints += "POST:  /api/v1/generate<br>"
     api_endpoints += "POST:  /api/v1/modify<br>"
+    api_endpoints += "GET:  /api/v1/sheet_music/<name><br>"
+    api_endpoints += "GET:   /api/v1/music_mp3<br>"
 
     return api_endpoints
 
