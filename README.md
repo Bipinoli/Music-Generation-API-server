@@ -25,6 +25,7 @@
    pip install pretty_midi
    pip install pickle5
    pip install Flask
+   pip install matplotlib
 ```
 ```
    In order to be able to generate sheet music
@@ -276,3 +277,5 @@ eg:
  returns sheet music as a png image
 
 ```
+
+> Try disabling firewall if the api server is not accessible from other comupters
