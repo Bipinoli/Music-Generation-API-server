@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, send_from_directory
 from flask_cors import CORS
 
 import music_generator as musicGen
@@ -12,7 +12,10 @@ import tensorflow as tf
 import sheet_music
 import midi2mp3
 
-app = Flask(__name__)
+import os
+
+# set temp folderas the static folder
+app = Flask(__name__, static_url_path='/temp')
 CORS(app)
 
 
@@ -82,8 +85,8 @@ def generate_music():
     '''
     # parameters passed as the json body in POST req
     parameters = request.get_json()
-    # return jsonify(musicGen.generate(parameters))
-    return send_file(musicGen.generate(parameters), mimetype ="audio/midi")
+    return jsonify({"link": musicGen.generate(parameters)})
+    # return send_file(musicGen.generate(parameters), mimetype ="audio/midi")
 
 
 
@@ -122,6 +125,14 @@ def get_sheet_music(name):
 def get_mp3_music():
     mp3_path = midi2mp3.make_mp3()
     return send_file(mp3_path, mimetype="audio/mpeg")
+
+
+
+@app.route("/static/<path:path>")
+def serve_static_folder(path):
+    # directory, file = os.path.splitext(path)
+    # return send_from_directory(directory, file)
+    return send_file(path)
 
 
 if __name__ == "__main__":
