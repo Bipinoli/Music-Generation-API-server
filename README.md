@@ -13,7 +13,7 @@
     + [Features](#features)
   * [To generate sheet music](#to-generate-sheet-music)
   * [To get music in mp3 format](#to-get-music-in-mp3-format)
-- [Some tips incase the things don't work right](#Some-tips-incase-the-things-don't-work-right)
+- [Some tips incase of problems](#some-tips-incase-of-problems)
 
 ---
 
@@ -296,5 +296,5 @@ eg:
 
 ---
 
-### Some tips incase the things don't work right
+### Some tips incase of problems
 >Try disabling firewall if the api server is not accessible from other comupters
