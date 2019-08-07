@@ -1,24 +1,28 @@
+import os
 
 # models to generate music
-chord_model = "models/chords/model_Epoch50_4.pickle"
-melody_model = "models/melody/modelEpoch60.pickle"
+# chord_model = "models/chords/model_Epoch50_4.pickle"
+# melody_model = "models/melody/modelEpoch60.pickle"
+chord_model = os.path.join("models", "chords", "model_Epoch20_2200.pickle")
+melody_model = os.path.join("models", "melody", "modelEpoch2.pickle")
 
 
 # path to take the seeds from
-seed_path = "seeds/indroll/"
-seed_chord_path = "seeds/chord_index/"
+seed_path = os.path.join("seeds", "indroll")
+seed_chord_path = os.path.join("seeds","chord_index")
 
 
 # folder to save the generated midi
 # it should be automatically cleaned
-midi_save_folder = "temp/"
+midi_save_folder = "temp"
 
 # generated music name
 generated_music_name = "gen_music"
 shifted_music_name = "gen_music_shifted"
+generated_mp3_music_name = "gen_audio"
 
 # sheet music temporary save location
-sheet_music_save_location = "sheet_music_generation/temp"
+sheet_music_save_location = os.path.join("sheet_music_generation", "temp")
 sheet_music_name = "sheet.xml"
 
 # shifting all the major scale keys to the key of C or not?
@@ -59,6 +63,6 @@ if counter_feature:
 
 
 # chord dictionary
-dict_path = 'seeds/'
+dict_path = 'seeds'
 chord_dict_name = 'chord_dict_shifted.pickle'
 index_dict_name = 'index_dict_shifted.pickle'

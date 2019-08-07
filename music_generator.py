@@ -195,8 +195,8 @@ def modify_generated_music(parameters):
         else:
             shift = utility.getShiftForKey(parameters["key"])
 
-
-    print("to shift: {} to get key on {}".format(shift, parameters["key"]))
+    if "key" in parameters:
+        print("to shift: {} to get key on {}".format(shift, parameters["key"]))
     if (shift != "<<unknown>>"):
         original = os.path.join(config.midi_save_folder, config.generated_music_name+".mid")
         shifted = os.path.join(config.midi_save_folder, config.shifted_music_name+".mid")

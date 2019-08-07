@@ -133,8 +133,9 @@ def getShiftForKeyInHigherOctave(key, higher_by):
 
 # get the chord dictionary
 def get_chord_dict():
-    chord_to_index = pickle.load(open(config.dict_path + config.chord_dict_name, 'rb'))
-    index_to_chord = pickle.load(open(config.dict_path + config.index_dict_name, 'rb'))
+    
+    chord_to_index = pickle.load(open(os.path.join(config.dict_path, config.chord_dict_name), 'rb'))
+    index_to_chord = pickle.load(open(os.path.join(config.dict_path, config.index_dict_name), 'rb'))
     return chord_to_index, index_to_chord
 
 
@@ -175,4 +176,4 @@ def pianoroll_to_midi_continous(pianoroll, midi_folder, filename, instrument_nam
 #        print('-'*50)
     midi.instruments.append(piano)
 #    print(midi.get_tempo_changes())
-    midi.write(midi_folder + filename+'.mid')
+    midi.write(os.path.join(midi_folder,filename)+'.mid')

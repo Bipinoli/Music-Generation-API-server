@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, send_file
+from flask_cors import CORS
 
 import music_generator as musicGen
 import utility as util
@@ -9,10 +10,10 @@ from keras.models import load_model
 import tensorflow as tf
 
 import sheet_music
-
+import midi2mp3
 
 app = Flask(__name__)
-
+CORS(app)
 
 
 
@@ -99,8 +100,8 @@ def modify_music():
     modify_by = request.get_json()
     musicGen.modify_generated_music(modify_by)
 
-    return musicGen.get_music_to_return()
-    # return send_file(musicGen.get_music_to_return(), mimetype ="audio/midi")
+    # return musicGen.get_music_to_return()
+    return send_file(musicGen.get_music_to_return(), mimetype ="audio/midi")
 
 
 @app.route("/api/v1/sheet_music/<name>")
@@ -114,5 +115,14 @@ def get_sheet_music(name):
     else:
         return "failed to do so!", 404
 
+
+@app.route("/api/v1/music_mp3")
+def get_mp3_music():
+    mp3_path = midi2mp3.make_mp3()
+    return send_file(mp3_path, mimetype="audio/mpeg")
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(host= '0.0.0.0', debug=True)
+	#app.run("192.168.0.48", port=5000, debug=True)
