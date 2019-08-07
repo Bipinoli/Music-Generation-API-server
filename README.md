@@ -13,7 +13,7 @@
     + [Features](#features)
   * [To generate sheet music](#to-generate-sheet-music)
   * [To get music in mp3 format](#to-get-music-in-mp3-format)
-- [Some tips incase the thigs don't work right](#some-tips-incase-the-things-don-t-work-right)
+- [Some tips incase the things don't work right](#some-tips-incase-the-things-don-t-work-right)
 
 ---
 
