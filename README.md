@@ -12,6 +12,8 @@
   * [To modify the generated music](#to-modify-the-generated-music)
     + [Features](#features)
   * [To generate sheet music](#to-generate-sheet-music)
+  * [To get music in mp3 format](#to-get-music-in-mp3-format)
+- [Some tips incase the thigs don't work right](#some-tips-incase-the-things-don-t-work-right)
 
 ---
 
@@ -25,15 +27,15 @@
    pip install pretty_midi
    pip install pickle5
    pip install Flask
-   pip install matplotlib
 ```
 ```
    In order to be able to generate sheet music
    1. pip install music21 
-   2. Install Musescore https://musescore.org/en/download
-   2. Open sheet_music_generation/music21_musescore_work_together_configurer.py in text editor
-   3. Change the path to the installed location of Musescore
-   4. run: python sheet_music_generation/music21_musescore_work_together_configurer.py
+   2. pip install matplotlib
+   3. Install Musescore https://musescore.org/en/download
+   4. Open sheet_music_generation/music21_musescore_work_together_configurer.py in text editor
+   5. Change the path to the installed location of Musescore
+   6. run: python sheet_music_generation/music21_musescore_work_together_configurer.py
 
 You are all set !! 
 ```
@@ -57,6 +59,7 @@ GET:   /api/v1/information/all
 POST:  /api/v1/generate
 POST:  /api/v1/modify
 GET:   /api/v1/sheet_music/<name>
+GET:   /api/v1/music_mp3
 ```
 
 ---
@@ -278,4 +281,20 @@ eg:
 
 ```
 
-> Try disabling firewall if the api server is not accessible from other comupters
+---
+
+#### To get music in mp3 format
+`GET:   /api/v1/music_mp3`
+Response: `music file in mp3 format`
+
+```
+eg:
+ localhost:5000/api/v1/music_mp3
+ 
+ returns the music in mp3 format
+```
+
+---
+
+### Some tips incase the things don't work right
+>Try disabling firewall if the api server is not accessible from other comupters
